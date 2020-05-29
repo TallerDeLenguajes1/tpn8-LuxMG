@@ -69,7 +69,7 @@ class MainClass {
 			float value2 = Convert.ToSingle(val2);
 			string operacionN = oper.ToString();
 			
-			new Calculadora(value1, value2, operacion);
+			new Calculadora(value1, value2, operacionN);
 
 			float resultado = 0;
 
