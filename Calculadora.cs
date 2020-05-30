@@ -3,39 +3,39 @@ using System.Text.RegularExpressions;
 using System.Collections.Generic;
 
 class Calculadora {
-    static private float numero1;
-    static private float numero2;
-    static private string fecha;
-    static private string operacion;
+	static private float numero1;
+	static private float numero2;
+	static private string fecha;
+	static private string operacion;
 
-    static public float Numero1 { get => numero1; set => numero1 = value; }
-    static public float Numero2 { get => numero2; set => numero2 = value; }
-    static public string Operacion { get => operacion; set => operacion = value; }
+	static public float Numero1 { get => numero1; set => numero1 = value; }
+	static public float Numero2 { get => numero2; set => numero2 = value; }
+	static public string Operacion { get => operacion; set => operacion = value; }
 	static public string Fecha { get => fecha; set => fecha = value; }
 
-    public Calculadora (float num1, float num2, string op){
-    	numero1 = num1;
-    	numero2 = num2;
-    	operacion = op;
-    	fecha = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
-    }
+	public Calculadora (float num1, float num2, string op){
+		numero1 = num1;
+		numero2 = num2;
+		operacion = op;
+		fecha = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+	}
 
-    static public float Suma () {
-        return numero1 + numero2;
-    }
+	static public float Suma () {
+		return numero1 + numero2;
+	}
 
-    static public float Resta () {
-        return numero1 - numero2;
-    }
+	static public float Resta () {
+		return numero1 - numero2;
+	}
 
-    static public float Multiplicacion () {
-        return numero1 * numero2;
-    }
+	static public float Multiplicacion () {
+		return numero1 * numero2;
+	}
 
-    static public float Division () {
-        if (numero2 != 0) return numero1 / numero2;
-        return 0;
-    }
+	static public float Division () {
+		if (numero2 != 0) return numero1 / numero2;
+		return 0;
+	}
 }
 
 class MainClass {
@@ -76,20 +76,20 @@ class MainClass {
 			switch (oper.Groups[4].Value){
 				case "+":
 					resultado = Calculadora.Suma();
-					break;
+				break;
 				case "-":
 					resultado = Calculadora.Resta();
-					break;
+				break;
 				case "*":
 					resultado = Calculadora.Multiplicacion();
-					break;
+				break;
 				case "/":
 					if(Calculadora.Numero2 != 0){
 						resultado = Calculadora.Division();
 					}else{
 						Console.WriteLine("ERROR");
 					}
-					break;
+				break;
 			}
 
 			if(!(oper.Groups[4].Value == "/" && Calculadora.Numero2 == 0)) Console.WriteLine(operacionN + " = " + resultado);
