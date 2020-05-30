@@ -76,20 +76,20 @@ class MainClass {
 			switch (oper.Groups[4].Value){
 				case "+":
 					resultado = Calculadora.Suma();
-					break;
+				break;
 				case "-":
 					resultado = Calculadora.Resta();
-					break;
+				break;
 				case "*":
 					resultado = Calculadora.Multiplicacion();
-					break;
+				break;
 				case "/":
 					if(Calculadora.Numero2 != 0){
 						resultado = Calculadora.Division();
 					}else{
 						Console.WriteLine("ERROR");
 					}
-					break;
+				break;
 			}
 
 			if(!(oper.Groups[4].Value == "/" && Calculadora.Numero2 == 0)) Console.WriteLine(operacionN + " = " + resultado);
