@@ -3,45 +3,45 @@ using System.Text.RegularExpressions;
 using System.Collections.Generic;
 
 class Calculadora {
-    static private float numero1;
-    static private float numero2;
-    static private string fecha;
-    static private string operacion;
+	static private float numero1;
+	static private float numero2;
+	static private string fecha;
+	static private string operacion;
 
-    static public float Numero1 { get => numero1; set => numero1 = value; }
-    static public float Numero2 { get => numero2; set => numero2 = value; }
-    static public string Operacion { get => operacion; set => operacion = value; }
+	static public float Numero1 { get => numero1; set => numero1 = value; }
+	static public float Numero2 { get => numero2; set => numero2 = value; }
+	static public string Operacion { get => operacion; set => operacion = value; }
 	static public string Fecha { get => fecha; set => fecha = value; }
 
-    public Calculadora (float num1, float num2, string op){
-    	numero1 = num1;
-    	numero2 = num2;
-    	operacion = op;
-    	fecha = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
-    }
+	public Calculadora (float num1, float num2, string op) {
+		numero1 = num1;
+		numero2 = num2;
+		operacion = op;
+		fecha = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+	}
 
-    static public float Suma () {
-        return numero1 + numero2;
-    }
+	static public float Suma () {
+		return numero1 + numero2;
+	}
 
-    static public float Resta () {
-        return numero1 - numero2;
-    }
+	static public float Resta () {
+		return numero1 - numero2;
+	}
 
-    static public float Multiplicacion () {
-        return numero1 * numero2;
-    }
+	static public float Multiplicacion () {
+		return numero1 * numero2;
+	}
 
-    static public float Division () {
-        if (numero2 != 0) return numero1 / numero2;
-        return 0;
-    }
+	static public float Division () {
+		if (numero2 != 0) return numero1 / numero2;
+		return 0;
+	}
 }
 
 class MainClass {
 	static public LinkedList<string> historial = new LinkedList<string>();
 
-	public static void Main () {
+	static public void Main () {
 		int continuar = 1;
 
 		do{
@@ -53,8 +53,8 @@ class MainClass {
 		}while(continuar!=0);
 	}
 
-	private static void Solucion () {
-		string pattern = @"(\d+)(\.)?(\d*)([-+*/])(\d+)(\.)?(\d*)";
+	static private void Solucion () {
+		string pattern = @"(\d+)([.,])?(\d*)([-+*/])(\d+)([.,])?(\d*)";
 		string operacion = String.Empty;
 
 		Console.WriteLine("Ingrese la operacion que desea realizar: ");
@@ -111,7 +111,7 @@ class MainClass {
 		}	
 	}
 
-	private static void MostrarHistorial () {
+	static private void MostrarHistorial () {
 		Console.WriteLine("\nHistorial:");
 		foreach(string s in historial){
 			Console.WriteLine(s);
